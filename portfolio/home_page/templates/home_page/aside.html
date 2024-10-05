@@ -1,0 +1,76 @@
+{% load static %}
+ 
+<div class="col-12 col-lg-4 ps-lg-4">
+									
+    <section class="resume-skills-section resume-section">
+        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-gear me-2"></i>Skills</h3>
+        
+        <ul class="list-unstyled">
+            {% for Skill in Skill_object %}
+        <li class="mb-2">
+            <div class="badge resume-skill-badge">{{ Skill.name }}</div>
+        </li>
+        {% endfor %}
+    
+    </ul>
+        
+    </section><!--//resume-section-->
+    
+    <hr>
+    
+    <section class="resume-skills-section resume-section">
+        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-person-gear me-2"></i>Soft Skills</h3>
+        <ul class="list-inline">
+            <li class="list-inline-item"><span class="badge resume-skill-badge">Leadership</span></li>
+            <li class="list-inline-item"><span class="badge resume-skill-badge">Project Management</span></li>
+            
+            <li class="list-inline-item"><span class="badge resume-skill-badge">DevOps</span></li>
+            <li class="list-inline-item"><span class="badge resume-skill-badge">Public Speaking</span></li>
+            
+                                       
+        </ul>
+    </section><!--//resume-section-->
+    
+    <hr>
+    
+    <section class="resume-projects-section resume-section">
+        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-code-slash me-2"></i>Projects</h3>
+
+        {% for Work in Work_object %}
+        <div class="item">
+            <h4 class="item-heading"><i class="item-icon bi bi-square-fill me-2"></i><a href="{% url 'work' %}#{{ Work.id }}">{{ Work.name }}</a></h4>
+            <div class="item-desc">{{ Work.short_intro |truncatechars:100 }}</div>
+        </div>
+        {% endfor %}
+
+
+    </section>
+    
+    <hr>
+    
+    <section class="resume-educate-section resume-section">
+        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-book me-2"></i>Education</h3>
+        <ul class="list-unstyled">
+            {% for Education in Education_object %}
+            <li class="mb-2">
+                <div class="resume-degree font-weight-bold">{{ Education.program }}</div>
+                <div class="resume-degree-org">{{ Education.school }}</div>
+                <div class="resume-degree-time">{{ Education.start_date |date:'Y' }} - {{ Education.end_date |date:'Y' }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </section><!--//resume-section-->
+    
+    <hr>
+    
+    <section class="resume-lang-section resume-section">
+        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-translate me-2"></i>Languages</h3>
+         <ul class="list-unstyled resume-lang-list">
+            <li class="mb-2">
+            </li>
+        </ul>
+    </section>
+    
+    
+    
+</div><!

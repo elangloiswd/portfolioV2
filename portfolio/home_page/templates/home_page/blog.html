@@ -1,0 +1,50 @@
+{% extends 'home_page/header_footer.html' %}
+{% block title %}
+    Blog
+{% endblock title %}
+{% load static %}
+{% block content %}
+{% url 'blog' as url %}
+<div class="col-12">
+    <section class="resume-summary-section resume-section">
+        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-2 py-lg-3"><i class="resume-section-heading-icon bi bi-person me-2"></i>Blog</h3>
+        <div class="resume-summary-desc">
+            Summarise your career profile here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        </div>
+    </section><!--//resume-section-->
+    
+    <hr>
+    
+    <section class="resume-experience-section resume-section">
+        <h3 class="text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-briefcase me-2"></i>Article #1 2024</h3>
+        <div class="position-relative">
+            <article class="position-relative pb-5">
+                
+                <div class="mb-2">
+                    
+                    <div class=" d-flex justify-content-between mb-1">
+                        <div>2024 - Present</div>
+                        <div>Google</div>
+                    </div>
+                    <h3>Tech Lead</h3>
+
+                </div><!--//resume-timeline-item-header-->
+                <div>
+                 
+                   
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta est diam, et blandit ipsum suscipit facilisis. Praesent nec semper eros. Aliquam quis turpis sed metus mollis luctus vitae rhoncus mi. </li>
+                        <li>Vivamus accumsan purus at urna tincidunt convallis. Sed nisi dolor, elementum eget tempus ac, blandit ac mi. Aliquam id tellus ut arcu luctus accumsan in at odio. </li>
+                        
+                        <li>Morbi condimentum, lorem in pharetra mollis, purus justo sollicitudin dolor, tristique vulputate mi odio sit amet ante.</li>
+                        <li>Blanditiis praesentium voluptatum deleniti atque corrupti.</li>
+                    </ul>
+                    
+                </div><!--//resume-timeline-item-desc-->
+
+            </article>
+        </div><!--//resume-timeline-->
+    </section><!--//resume-experience-section-->
+</div>
+
+{% endblock content %}

@@ -1,0 +1,62 @@
+{% extends 'home_page/header_footer.html' %}
+
+{% block title %}
+    Work
+{% endblock title %}
+
+{% load static %}
+
+{% block content %}
+
+{% url 'work' as url %}
+
+<div class="col-main col-12 col-lg-8 pe-lg-4">
+
+  <section class="resume-summary-section resume-section">
+    <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-2 py-lg-3">
+      <i class="resume-section-heading-icon bi bi-person me-2"></i>Work
+    </h3>
+    <div class="resume-summary-desc">
+      Summarise your career profile here lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+      Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    </div>
+  </section><hr>
+
+  <section class="resume-experience-section resume-section">
+    <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3">
+      <i class="resume-section-heading-icon bi bi-briefcase me-2"></i>Projects
+    </h3>
+    <div class="resume-timeline position-relative">
+        {% for Work in Work_object %}
+        <article class="resume-timeline-item position-relative pb-5" id="{{ Work.id }}">
+
+            <div class="resume-timeline-item-header mb-2">
+
+                <div class="resume-position-meta d-flex justify-content-between mb-1">
+                    <div class="resume-position-time">{{ Work.created_date }}</div>
+                    <div class="resume-company-name">
+                      {% for Language in Work.programming_languages.all %}
+                      <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ Language.image.url }}" alt="{{ Language.name }}" width="30" height="30">
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <h3 class="resume-position-title mb-1">{{ Work.name }}</h3>
+
+            </div><div class="resume-timeline-item-desc">
+
+                <ul class="resume-timeline-list">
+                    <li>{{ Work.short_intro }}</li>
+                    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ Work.work_images.url }}" alt="image">
+                </ul>
+
+            </div></article>
+    {% endfor %}
+    </div></section></div>
+
+{% block aside %}
+  {% include 'home_page/aside.html' %}
+{% endblock %}
+
+{% endblock content %}
+
