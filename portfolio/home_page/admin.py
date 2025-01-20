@@ -1,8 +1,6 @@
 from django.contrib import admin
-from .models import Work, ProgrammingLanguage
 from django.utils.html import format_html
-
-from .models import Work, ProgrammingLanguage, Education, Skill
+from .models import Work, ProgrammingLanguage, Education, Certifications, Skill, Category, Post
 
 
 class ProgrammingLanguageAdmin(admin.ModelAdmin):
@@ -43,11 +41,20 @@ class WorkAdmin(admin.ModelAdmin):
 
 class EducationAdmin(admin.ModelAdmin):
     list_display = ('school', 'program')
-
+class CertificationsAdmin(admin.ModelAdmin):
+    list_display = ('name', 'company', 'date')
 class SkillAdmin(admin.ModelAdmin):
     list_display = ('name',)  # Customize list display fields
+    
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)  # Customize list display fields
+    
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title','created_on',)  # Customize list display fields
     
 admin.site.register(Work, WorkAdmin)
 admin.site.register(ProgrammingLanguage, ProgrammingLanguageAdmin)
 admin.site.register(Education, EducationAdmin)
-admin.site.register(Skill, SkillAdmin)
+admin.site.register(Certifications, CertificationsAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Post, PostAdmin)

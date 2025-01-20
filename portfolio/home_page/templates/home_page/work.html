@@ -10,15 +10,14 @@
 
 {% url 'work' as url %}
 
-<div class="col-main col-12 col-lg-8 pe-lg-4">
+<div class="col-main col-12 col-lg-9 ps-lg-4">
 
   <section class="resume-summary-section resume-section">
     <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-2 py-lg-3">
-      <i class="resume-section-heading-icon bi bi-person me-2"></i>Work
+      <i class="resume-section-heading-icon bi bi-gear me-2"></i>My Work
     </h3>
     <div class="resume-summary-desc">
-      Summarise your career profile here lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-      Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      These are some of the projects I've worked on.
     </div>
   </section><hr>
 
@@ -33,21 +32,22 @@
             <div class="resume-timeline-item-header mb-2">
 
                 <div class="resume-position-meta d-flex justify-content-between mb-1">
-                    <div class="resume-position-time">{{ Work.created_date }}</div>
-                    <div class="resume-company-name">
+                    <div class="resume-position-time">{{ Work.created_date |date:'Y-M'}}</div>
+                    <div class="resume-company-name mx-2 lang_icon_box">
                       {% for Language in Work.programming_languages.all %}
-                      <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ Language.image.url }}" alt="{{ Language.name }}" width="30" height="30">
+                      <i class="{{ Language.icon }} h3 mx-2 lang_icon"><a href="#" data-toggle="tooltip" title="Title Here"></a></i>
                         {% endfor %}
                     </div>
                 </div>
-
                 <h3 class="resume-position-title mb-1">{{ Work.name }}</h3>
+            </div>
 
-            </div><div class="resume-timeline-item-desc">
+            <div class="resume-timeline-item-desc">
 
-                <ul class="resume-timeline-list">
+                <ul class="resume-timeline-list resume-timeline-item-desc">
                     <li>{{ Work.short_intro }}</li>
-                    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ Work.work_images.url }}" alt="image">
+                    <img class="mr-3 img-fluid post-thumb d-none d-md-flex rounded-2 mb-2 work_img" src="{{ Work.work_images.url }}" alt="image">
+                    <span>Link:</span> <a href="{{ Work.github_link }}" class="bi bi-github h4 mx-2"></a><a href="{{ Work.website_link }}" class="bi bi-link h4"></a>
                 </ul>
 
             </div></article>

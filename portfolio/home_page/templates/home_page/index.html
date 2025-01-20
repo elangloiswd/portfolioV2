@@ -4,48 +4,79 @@
 {% endblock title %}
 {% load static %}
 {% block content %}
-{% url 'index' as url %}
-								<div class="col-main col-12 col-lg-8 pe-lg-4">
+{% url 'home' as url %}
+								<div class="col-main col-12 col-lg-9 ps-lg-4">
 									<section class="resume-summary-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-2 py-lg-3"><i class="resume-section-heading-icon bi bi-person me-2"></i>About Me</h3>
+										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-2 py-lg-3"><i class="resume-section-heading-icon bi bi-person me-2"></i>About</h3>
 										<div class="resume-summary-desc">
-											Summarise your career profile here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+											From as far as I can remember, I've always been building projects on my computer. Transitioning from bricklaying to programming after fifteen years feels unreal. I bring the precision of laying bricks and the curiosity of a lifelong learner into this journey.
 										</div>
-									</section><!--//resume-section-->
+									</section>
 									
 									<hr>
 									
 									<section class="resume-experience-section resume-section">
 										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-briefcase me-2"></i>Work Experience</h3>
-										<div class="resume-timeline position-relative">
+										<div class="resume-timeline position-relative pt-2 ms-5">
+											
 											{% for Education in Education_object %}  
       
 											<article class="resume-timeline-item position-relative pb-5">
-											  <div class="resume-timeline-item-header mb-2">
+												
+											  <div class="resume-timeline-item-header mb-2 ms-2">
 									
 												<div class="resume-position-meta d-flex justify-content-between mb-1">
-												  <div class="resume-position-time">({{ Education.start_date |date:'Y' }} - {{ Education.end_date |date:'Y' }})  {{ Education.school }} </div>
-												  <div class="resume-company-name">
+													
+												  <div class="resume-position-time">({{ Education.start_date |date:'Y' }}
+													{% if Education.end_date %}
+														- {{ Education.end_date |date:'Y' }}{% else %}- Present{% endif %}) {{ Education.school }}</div>
+												  <div class="resume-company-name bounce">
 													{{ Education.grade }}
 												  </div>
 												</div>
 									
-												<h3 class="resume-position-title mb-1">{{ Education.program }}</h3>
+												<h3 class="resume-position-title bounce mb-1 mx-auto">{{ Education.program }}</h3>
 									
-											  </div><div class="resume-timeline-item-desc">
+											  </div>
+											  <img class="resume-timeline-item2" src="{{ Education.school_logo.url }}" alt="image">
+ 
+											  <div class="resume-timeline-item-desc">
 									
-												<ul class="resume-timeline-list">
 
-												</ul>
 									
 											</div></article>
 									
 										  {% endfor %}
 
-							            </div><!--//resume-timeline-->
-									</section><!--//resume-experience-section-->
+							            </div>
+									</section>
+									<section class="resume-experience-section resume-section">
+										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-briefcase me-2"></i>Certifications</h3>
+										<div class="resume-timeline position-relative pt-2 ms-5">
+											{% for Certifications in Certifications_object %}  
+      
+											<article class="resume-timeline-item position-relative pb-5">
+											  <div class="resume-timeline-item-header mb-2 ms-2">
+									
+												<div class="resume-position-meta d-flex justify-content-between mb-1">
+												  <div class="resume-position-time">({{ Certifications.date |date:'Y' }})  {{ Certifications.company }} </div>
+												  <div class="resume-company-name bounce">
+													{{ Certifications.company }}
+												  </div>
+												</div>
+												<h3 class="resume-position-title bounce mb-1">{{ Certifications.name }}</h3>
+												<img class="resume-timeline-item2" src="{{ Certifications.company_logo.url }}" alt="image">
+											  </div><div class="resume-timeline-item-desc">
+									
+
+									
+											</div></article>
+									
+										  {% endfor %}
+
+							            </div>
+									</section>
 								</div>
-								<!--ASIDE SECTION-->
 								{% block aside %}
 								{% include 'home_page/aside.html' %}
 								{% endblock %}

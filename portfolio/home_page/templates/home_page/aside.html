@@ -1,35 +1,34 @@
 {% load static %}
  
-<div class="col-12 col-lg-4 ps-lg-4">
+<div class="col-12 col-lg-3 pe-lg-4 order-lg-first">
 									
     <section class="resume-skills-section resume-section">
         <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-gear me-2"></i>Skills</h3>
         
-        <ul class="list-unstyled">
+        <ul class="list-unstyled row">
             {% for Skill in Skill_object %}
-        <li class="mb-2">
-            <div class="badge resume-skill-badge">{{ Skill.name }}</div>
+        <li class="mb-1 col-sm-6">
+            <div class="badge resume-skill-badge"><i class="{{ Skill.icon }} icon"></i><span class="ps-2">{{ Skill.name }}</span></div>
         </li>
         {% endfor %}
     
     </ul>
         
-    </section><!--//resume-section-->
+    </section>
     
     <hr>
     
     <section class="resume-skills-section resume-section">
         <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-person-gear me-2"></i>Soft Skills</h3>
         <ul class="list-inline">
-            <li class="list-inline-item"><span class="badge resume-skill-badge">Leadership</span></li>
-            <li class="list-inline-item"><span class="badge resume-skill-badge">Project Management</span></li>
-            
-            <li class="list-inline-item"><span class="badge resume-skill-badge">DevOps</span></li>
-            <li class="list-inline-item"><span class="badge resume-skill-badge">Public Speaking</span></li>
+            <li class="list-inline-item mb-1"><span class="badge resume-skill-badge">Problem-solving</span></li>
+            <li class="list-inline-item mb-1"><span class="badge resume-skill-badge">Growth Mindset</span></li>
+            <li class="list-inline-item mb-1"><span class="badge resume-skill-badge">Communication</span></li>
+            <li class="list-inline-item mb-1"><span class="badge resume-skill-badge">Time Management</span></li>
             
                                        
         </ul>
-    </section><!--//resume-section-->
+    </section>
     
     <hr>
     
@@ -38,7 +37,7 @@
 
         {% for Work in Work_object %}
         <div class="item">
-            <h4 class="item-heading"><i class="item-icon bi bi-square-fill me-2"></i><a href="{% url 'work' %}#{{ Work.id }}">{{ Work.name }}</a></h4>
+            <h4 class="item-heading"><i class="item-icon fa-solid fa-minus me-2"></i><a href="{% url 'work' %}#{{ Work.id }}">{{ Work.name }}</a></h4>
             <div class="item-desc">{{ Work.short_intro |truncatechars:100 }}</div>
         </div>
         {% endfor %}
@@ -49,7 +48,7 @@
     <hr>
     
     <section class="resume-educate-section resume-section">
-        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-book me-2"></i>Education</h3>
+        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-book-half me-2"></i>Education</h3>
         <ul class="list-unstyled">
             {% for Education in Education_object %}
             <li class="mb-2">
@@ -67,10 +66,16 @@
         <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-translate me-2"></i>Languages</h3>
          <ul class="list-unstyled resume-lang-list">
             <li class="mb-2">
+                <div class="resume-lang-name font-weight-bold">English</div>
+                <div class="resume-degree-org">Professional Proficiency</div>
+            </li>
+            <li class="mb-2">
+                <div class="resume-lang-name font-weight-bold">French</div>
+                <div class="resume-degree-org">Native</div>
             </li>
         </ul>
     </section>
     
     
     
-</div><!
+</div>

@@ -1,0 +1,46 @@
+{% load static %}
+
+<div class="col-12 col-lg-3 ps-lg-4 order-lg-last aside_blog">
+    <section class="resume-skills-section resume-section">
+        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-gear me-2"></i>Categories</h3>
+        <div>
+            <ul class="list-inline">
+                {% for category in categories %}
+                    <li class="list-inline-item">
+                        <a href="{% url 'blog' %}?category={{ category.name }}" class="category_blog_link">
+                            <span class="category_blog {% if category.name == selected_categories.first.name %}category_active{% endif %}">
+                                #{{ category.name }}
+                            </span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="resume-projects-section resume-section">
+        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-journal-text me-2"></i>Random Post</h3>
+
+        {% for Post in random_posts %}
+        <div class="item mb-4">
+            <h4 class="item-heading"><a href="{% url 'post' slug=Post.slug %}">{{ Post.title }}</a></h4>
+            <div class="mb-2">
+                <div class="d-flex">
+                    <div class="me-2">{{ Post.created_on |date:'d-M-Y'}}</div>
+                    <ul class="list-inline mb-1">
+                        {% for Category in Post.categories.all %}
+                        <li class="list-inline-item"><span class="badge {{ Category.color }}">{{ Category.name }}</span></li>
+                        {% if not forloop.last %}{% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <p>{{ Post.short }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </section>
+</div>

@@ -3,48 +3,48 @@
     Blog
 {% endblock title %}
 {% load static %}
+{% load active_link_tags %} 
 {% block content %}
 {% url 'blog' as url %}
-<div class="col-12">
+
+<div class="col-12 col-lg-9 px-lg-4">
     <section class="resume-summary-section resume-section">
-        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-2 py-lg-3"><i class="resume-section-heading-icon bi bi-person me-2"></i>Blog</h3>
+        <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-2 py-lg-3"><i class="resume-section-heading-icon bi bi-cup-hot me-2"></i>Blog</h3>
         <div class="resume-summary-desc">
-            Summarise your career profile here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            <h6>Hi, I'm Eric, a 36-year-old Bricklayer trying to land my first job as a developer.</h6>
+            <p class="mt-n1 w-75">Join me on this journey! My blog will chronicle my classes, my side projects, document my self-learning adventures, and share my thoughts on the crazy world of tech.</p>
         </div>
-    </section><!--//resume-section-->
+    </section>
     
     <hr>
-    
     <section class="resume-experience-section resume-section">
-        <h3 class="text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-briefcase me-2"></i>Article #1 2024</h3>
+        {% for Post in Post_object %}
+        <h5 class="text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-file-earmark-text me-2"></i><a href="{% url 'post' slug=Post.slug %}">{{ Post.title }}</a></h5>
         <div class="position-relative">
             <article class="position-relative pb-5">
                 
                 <div class="mb-2">
                     
                     <div class=" d-flex justify-content-between mb-1">
-                        <div>2024 - Present</div>
-                        <div>Google</div>
-                    </div>
-                    <h3>Tech Lead</h3>
-
-                </div><!--//resume-timeline-item-header-->
-                <div>
-                 
-                   
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta est diam, et blandit ipsum suscipit facilisis. Praesent nec semper eros. Aliquam quis turpis sed metus mollis luctus vitae rhoncus mi. </li>
-                        <li>Vivamus accumsan purus at urna tincidunt convallis. Sed nisi dolor, elementum eget tempus ac, blandit ac mi. Aliquam id tellus ut arcu luctus accumsan in at odio. </li>
-                        
-                        <li>Morbi condimentum, lorem in pharetra mollis, purus justo sollicitudin dolor, tristique vulputate mi odio sit amet ante.</li>
-                        <li>Blanditiis praesentium voluptatum deleniti atque corrupti.</li>
-                    </ul>
-                    
-                </div><!--//resume-timeline-item-desc-->
+                        <div>{{ Post.created_on |date:'d-M-Y'}}</div>
+                        <ul class="list-inline">
+                            {% for Category in Post.categories.all %}
+                            <li class="list-inline-item"><span class="badge {{ Category.color }}">{{ Category.name }}</span></li>
+                            {% if not forloop.last %}{% endif %}
+                            {% endfor %}
+                        </ul>                    </div>
+                    <h5>{{ Post.short }}</h5>
+                </div>
+                <div>  
+                       <span>{{ Post.body|truncatechars_html:89|safe }}</span>
+                </div>
 
             </article>
-        </div><!--//resume-timeline-->
-    </section><!--//resume-experience-section-->
+        </div>
+        {% endfor %}
+    </section>
 </div>
-
+{% block aside %}
+{% include 'home_page/aside_blog.html' %}
+{% endblock %}
 {% endblock content %}
