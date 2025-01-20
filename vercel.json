@@ -20,11 +20,7 @@
     "routes": [
       {
         "src": "/(.*)", 
-        "dest": "/static/$1" 
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/portfolio/portfolio/wsgi.py"
+        "dest": "/home" 
       }
     ]
   }
