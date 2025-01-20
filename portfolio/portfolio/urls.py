@@ -18,8 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from home_page import views as views
 urlpatterns = [
-    path('', include('home_page.urls')),
+    path('', views.home, name='home'),
+    path('home/', views.home, name='home'),
+    path('work/', views.work, name='work'),
+    path('blog/', views.blog, name='blog'),
+    path('<slug:slug>/', views.post, name='post'),
     path('admin/', admin.site.urls),
     path("ckeditor5/", include('django_ckeditor_5.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
