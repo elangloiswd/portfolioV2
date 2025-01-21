@@ -44,17 +44,18 @@ class EducationAdmin(admin.ModelAdmin):
 class CertificationsAdmin(admin.ModelAdmin):
     list_display = ('name', 'company', 'date')
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ('name',)  # Customize list display fields
+    list_display = ('name',) 
     
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name',)  # Customize list display fields
+    list_display = ('name',) 
     
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title','created_on',)  # Customize list display fields
+    list_display = ('title','created_on',)  
     
 admin.site.register(Work, WorkAdmin)
 admin.site.register(ProgrammingLanguage, ProgrammingLanguageAdmin)
 admin.site.register(Education, EducationAdmin)
+admin.site.register(Skill, SkillAdmin)
 admin.site.register(Certifications, CertificationsAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
