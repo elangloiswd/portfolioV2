@@ -14103,14 +14103,14 @@ article:hover .resume-timeline-item2{
     text-align: center;
     border-radius: 50%;
     background: rgba(0, 0, 0, .1);
-    color: #62a0ea
+    color: #cfd0d0!important
 }
 
 .social-list a:hover,
 .social-list a:focus {
     color: #8ab4ef;
     background: rgba(0, 0, 0, .2);
-    transform: translate(-2%) rotate(10deg);
+    transform: translate(-2%) rotate(7deg);
     transition: all .3s ease-in-out
 }
 
