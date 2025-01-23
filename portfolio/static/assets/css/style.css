@@ -14366,11 +14366,8 @@ article:hover .resume-timeline-item2{
         background: #242424;
         padding-block: 7%;
       }
-    .resume-educate-section:nth-child(n+3){
+    .experience-section{
         display: none;
-    }
-    .order-lg-first hr:nth-child(n+3){
-        color: blue;
     }
 }
 @media only screen and (max-width: 991px) { /* Target iPad screens */
