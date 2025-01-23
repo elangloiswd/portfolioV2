@@ -54,7 +54,9 @@
             <li class="mb-2">
                 <div class="resume-degree font-weight-bold">{{ Education.program }}</div>
                 <div class="resume-degree-org">{{ Education.school }}</div>
-                <div class="resume-degree-time">{{ Education.start_date |date:'Y' }} - {{ Education.end_date |date:'Y' }}</div>
+                <div class="resume-degree-time">({{ Education.start_date |date:'Y' }}
+                    {% if Education.end_date %}
+                        - {{ Education.end_date |date:'Y' }}{% else %}- Present{% endif %})</div>
             </li>
             {% endfor %}
         </ul>
