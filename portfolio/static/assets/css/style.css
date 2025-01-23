@@ -14383,4 +14383,7 @@ article:hover .resume-timeline-item2{
     .resume-section{
         padding-inline: 3%;
     }
+    sections:nth-child(n+3){
+        display: none;
+    }
   }
