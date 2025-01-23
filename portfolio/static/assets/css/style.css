@@ -14344,6 +14344,10 @@ article:hover .resume-timeline-item2{
     border: 2px solid #202020;
 }
 
+i .lang_icon {
+    font-weight: lighter!important;
+}
+
 @media(min-width: 1000px) {
     .resume-wrapper {
         max-width: 1240px
