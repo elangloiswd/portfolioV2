@@ -14002,6 +14002,7 @@ a.btn svg {
 
 .lang_icon{
     color: #cfd0d0;
+    font-weight: lighter!important;
 }
 
 .lang_icon_box:hover .lang_icon:nth-child(1){
@@ -14342,10 +14343,6 @@ article:hover .resume-timeline-item2{
     object-fit: cover;
     object-position: top;
     border: 2px solid #202020;
-}
-
-i .lang_icon {
-    font-weight: lighter!important;
 }
 
 @media(min-width: 1000px) {
