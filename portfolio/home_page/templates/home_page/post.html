@@ -11,9 +11,9 @@
     <section class="resume-experience-section resume-section px-2"> 
         <h5 class="text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-file-earmark-text me-2"></i>{{ post.title }}</h5>
         <div class="position-relative">
-            <article class="position-relative pb-5">
-                <div class="mb-2">
-                    <div class="d-flex justify-content-between pb-3">
+            <article class="position-relative pb-3">
+                <div class="mb-5">
+                    <div class="d-flex justify-content-between pb-5">
                         <div>{{ post.created_on |date:'d-M-Y'}}</div>
                             <ul class="list-inline">
                                 {% for Category in post.categories.all %}
