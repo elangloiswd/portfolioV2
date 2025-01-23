@@ -30,9 +30,9 @@
         </ul>
     </section>
     
-    <hr>
+    <hr class="{{ work_section_class }}">
     
-    <section class="resume-projects-section resume-section">
+    <section class="resume-projects-section resume-section {{ work_section_class }}">
         <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-code-slash me-2"></i>Projects</h3>
 
         {% for Work in Work_object %}
@@ -45,9 +45,9 @@
 
     </section>
     
-    <hr class="experience-section">
+    <hr class="{{ experience_section_class }}">
     
-    <section class="resume-educate-section resume-section experience-section">
+    <section class="resume-educate-section resume-section {{ experience_section_class }}">
         <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-book-half me-2"></i>Experience</h3>
         <ul class="list-unstyled">
             {% for Education in Education_object %}

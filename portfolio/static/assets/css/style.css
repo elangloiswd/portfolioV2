@@ -14366,7 +14366,7 @@ article:hover .resume-timeline-item2{
         background: #242424;
         padding-block: 7%;
       }
-    .experience-section{
+    .hidden-section{
         display: none;
     }
 }

@@ -15,6 +15,8 @@ def home(request):
         'Work_object': Work_objects,
         'Skill_object': Skill_objects,
         'Post_object' : Post_objects,
+        'experience_section_class': 'hidden-section',
+        'work_section_class': '',
     }
     return render(request, 'home_page/index.html', context)
 
@@ -24,10 +26,12 @@ def work(request):
     Work_objects = Work.objects.all().order_by('-created_date')
     Skill_objects = Skill.objects.all().order_by('name')
 
-    context = {'Work_object': Work_objects,
-               'Education_object': Education_object,
-               'Certifications_object': Certifications_object,
-               'Skill_object': Skill_objects,
+    context = { 'Work_object': Work_objects,
+                'Education_object': Education_object,
+                'Certifications_object': Certifications_object,
+                'Skill_object': Skill_objects,
+                'experience_section_class': '',
+                'work_section_class': 'hidden-section',
                }
     return render(request, 'home_page/work.html', context)
 
