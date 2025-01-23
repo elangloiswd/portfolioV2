@@ -21,6 +21,7 @@
         {% for Post in Post_object %}
         <h5 class="text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-file-earmark-text me-2"></i><a href="{% url 'post' slug=Post.slug %}">{{ Post.title }}</a></h5>
         <div class="position-relative">
+            <a href="{% url 'post' slug=Post.slug %}">
             <article class="position-relative pb-5">
                 
                 <div class="mb-2">
@@ -39,7 +40,7 @@
                        <span>{{ Post.body|truncatechars_html:89|safe }}</span>
                 </div>
 
-            </article>
+            </article></a>
         </div>
         {% endfor %}
     </section>
