@@ -14361,10 +14361,11 @@ article:hover .resume-timeline-item2{
     .container-fluid {
         padding:0!important;
     }
-
+    .resume-section{
+        padding-block: 5%;
+    }
     .resume-section:nth-of-type(even) {
         background: #242424;
-        padding-block: 7%;
       }
     .hidden-section{
         display: none;
