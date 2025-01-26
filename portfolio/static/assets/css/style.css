@@ -14370,7 +14370,7 @@ article:hover .resume-timeline-item2{
     .hidden-section{
         display: none;
     }
-    .ck-editor-content img{
+    .ckeditor-content img{
         max-width: 360px;
         height: auto;
     }
