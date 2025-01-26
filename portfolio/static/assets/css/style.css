@@ -14370,6 +14370,10 @@ article:hover .resume-timeline-item2{
     .hidden-section{
         display: none;
     }
+    .ck-editor-content img{
+        max-width: 360px;
+        height: auto;
+    }
 }
 @media only screen and (max-width: 991px) { /* Target iPad screens */
     .resume-skills-section .list-unstyled.row {
